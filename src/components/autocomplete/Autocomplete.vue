@@ -36,8 +36,12 @@
                         v-show="isActive"
                         v-for="(option, index) in data"
                         :key="index"
-                        class="dropdown-item"
-                        :class="{ 'is-hovered': option === hovered }"
+                        :class="['dropdown-item', {
+                            'is-hovered': option === hovered,
+                            'is-size-5': size === 'is-large',
+                            'is-size-6': size === 'is-medium',
+                            'is-size-7': size === 'is-small'
+                        }]"
                         @click="setSelected(option)">
 
                         <slot
