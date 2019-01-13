@@ -60,7 +60,8 @@
                 type: Boolean,
                 default: true
             },
-            customClass: String
+            customClass: String,
+            fieldClass: String,
         },
         data() {
             return {
@@ -72,7 +73,7 @@
         },
         computed: {
             rootClasses() {
-                return [this.newPosition, {
+                return ['field', this.fieldClass, this.newPosition, {
                     'is-expanded': this.expanded,
                     'is-grouped-multiline': this.groupMultiline,
                     'is-horizontal': this.horizontal
@@ -157,7 +158,7 @@
                 let renderedNode = 0
                 if (this.$slots.default) {
                     renderedNode = this.$slots.default
-                                        .reduce((i, node) => node.tag ? i + 1 : i, 0)
+                        .reduce((i, node) => node.tag ? i + 1 : i, 0)
                 }
                 if (
                     renderedNode > 1 &&
